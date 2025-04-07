@@ -14,100 +14,108 @@ define([], () => {
 
     // Combat sites ===================================================================================================
 
-    let c1Combat = {
+	 let allCombat = {
+        10: 'Deepflow Rift',
+    };
+
+    let c1Combat = Object.assign({}, allCombat, {
         1: 'Perimeter Ambush Point',
         2: 'Perimeter Camp',
         3: 'Phase Catalyst Node',
         4: 'The Line'
-    };
+    });
 
-    let c2Combat = {
+    let c2Combat = Object.assign({}, allCombat, {
         1: 'Perimeter Checkpoint',
         2: 'Perimeter Hangar',
         3: 'The Ruins of Enclave Cohort 27',
         4: 'Sleeper Data Sanctuary'
-    };
+    });
 
-    let c3Combat = {
+    let c3Combat = Object.assign({}, allCombat, {
         1: 'Fortification Frontier Stronghold',
         2: 'Outpost Frontier Stronghold',
         3: 'Solar Cell',
         4: 'The Oruze Construct'
-    };
+    });
 
-    let c4Combat = {
+    let c4Combat = Object.assign({}, allCombat, {
         1: 'Frontier Barracks',
         2: 'Frontier Command Post',
         3: 'Integrated Terminus',
         4: 'Sleeper Information Sanctum'
-    };
+    });
 
-    let c5Combat = {
+    let c5Combat = Object.assign({}, allCombat, {
         1: 'Core Garrison', //*
         2: 'Core Stronghold', //*
         3: 'Oruze Osobnyk', //*
         4: 'Quarantine Area'
-    };
+    });
 
-    let c6Combat = {
+    let c6Combat = Object.assign({}, allCombat, {
         1: 'Core Citadel', //*
         2: 'Core Bastion', //*
         3: 'Strange Energy Readings', //*
         4: 'The Mirror' //*
-    };
+    });
 
     // Thera WH
-    let c12Combat = {
+    let c12Combat = Object.assign({}, allCombat, {
         1: 'Epicenter',
         2: 'Expedition Command Outpost Wreck',
         3: 'Planetary Colonization Office Wreck',
         4: 'Testing Facilities'
-    };
+    });
+
+	// Shattered WH
+    let c13Combat = Object.assign({}, allCombat, c1Combat, c2Combat, c3Combat, {
+    });
 
     // Drifter Sentinel WH
-    let c14Combat = {
+    let c14Combat = Object.assign({}, allCombat, {
         1: 'Monolith',
         2: 'Wormhole in Rock Circle',
         3: 'Opposing Spatial Rifts',
         4: 'Sleeper Enclave Debris',
         5: 'Crystal Resource'
-    };
+    });
 
     // Drifter Barbican WH
-    let c15Combat = {
+    let c15Combat = Object.assign({}, allCombat, {
         1: 'Wrecked Ships',
         2: 'Unstable Wormhole',
         3: 'Spatial Rift',
         4: 'Heavily Guarded Spatial Rift',
         5: 'Crystals'
-    };
+    });
 
     // Drifter Vidette WH
-    let c16Combat = {
+    let c16Combat = Object.assign({}, allCombat, {
         1: 'Ship Graveyard',
         2: 'Sleeper Engineering Station',
         3: 'Spatial Rift',
         4: 'Sleeper Enclave in Coral Rock',
         5: 'Crystals and Stone Circle'
-    };
+    });
 
     // Drifter Conflux WH
-    let c17Combat = {
+    let c17Combat = Object.assign({}, allCombat, {
         1: 'Monolith',
         2: 'Caged Wormhole',
         3: 'Rock Formation and Wormhole',
         4: 'Particle Acceleration Array',
         5: 'Guarded Asteroid Station'
-    };
+    });
 
     // Drifter Redoubt WH
-    let c18Combat = {
+    let c18Combat = Object.assign({}, allCombat, {
         1: 'Ship Graveyard',
         2: 'Caged Wormhole',
         3: 'Spatial Rift Generator',
         4: 'Sleeper Enclave',
         5: 'Hollow Asteroid'
-    };
+    });
 
     // Relic sites ====================================================================================================
 
@@ -132,7 +140,11 @@ define([], () => {
         26: 'Ruined Serpentis Crystal Quarry',
         27: 'Ruined Serpentis Monument Site',
         28: 'Ruined Serpentis Science Outpost',
-        29: 'Ruined Serpentis Temple Site'
+        29: 'Ruined Serpentis Temple Site',
+		30: 'Ruined Rogue Drone Crystal Quarry',
+		31: 'Ruined Rogue Drone Monument Site',
+		32: 'Ruined Rogue Drone Science Outpost',
+		33: 'Ruined Rogue Drone Temple Site',
     };
 
     let c1Relic = Object.assign({}, nullRelic, {
@@ -164,6 +176,9 @@ define([], () => {
         1: 'Forgotten Core Assembly Hall', //*
         2: 'Forgotten Core Circuitry Disassembler' //*
     };
+
+	let c13Relic = Object.assign({}, nullRelic, c1Relic, c2Relic, c3Relic, {
+	});
 
     // Data sites =====================================================================================================
 
@@ -260,7 +275,8 @@ define([], () => {
 
 
     // Gas sites ======================================================================================================
-
+	// Gas sites are inclusive of sites below that. C1 is found in C2 is found in C3 etc.
+	
     let c1Gas = {
         1: 'Barren Perimeter Reservoir', //*
         2: 'Token Perimeter Reservoir', //*
@@ -269,58 +285,28 @@ define([], () => {
         5: 'Ordinary Perimeter Reservoir' //*
     };
 
-    let c2Gas = {
-        1: 'Barren Perimeter Reservoir', //*
-        2: 'Token Perimeter Reservoir', //*
-        3: 'Minor Perimeter Reservoir', //*
-        4: 'Sizeable Perimeter Reservoir', //*
-        5: 'Ordinary Perimeter Reservoir' //*
-    };
+    let c2Gas = Object.assign({}, c1Gas, {
+    });
 
-    let c3Gas = {
-        1: 'Barren Perimeter Reservoir', //*
-        2: 'Token Perimeter Reservoir', //*
-        3: 'Minor Perimeter Reservoir', //*
-        4: 'Sizeable Perimeter Reservoir', //*
-        5: 'Ordinary Perimeter Reservoir', //*
+    let c3Gas = Object.assign({}, c2Gas, {
         6: 'Bountiful Frontier Reservoir', //*
         7: 'Vast Frontier Reservoir' //*
-    };
+    });
 
-    let c4Gas = {
-        1: 'Barren Perimeter Reservoir', //*
-        2: 'Token Perimeter Reservoir', //*
-        3: 'Minor Perimeter Reservoir', //*
-        4: 'Sizeable Perimeter Reservoir', //*
-        5: 'Ordinary Perimeter Reservoir', //*
-        6: 'Vast Frontier Reservoir', //*
-        7: 'Bountiful Frontier Reservoir' //*
-    };
+    let c4Gas = Object.assign({}, c3Gas, {
+    });
 
-    let c5Gas = {
-        1: 'Barren Perimeter Reservoir', //*
-        2: 'Minor Perimeter Reservoir', //*
-        3: 'Ordinary Perimeter Reservoir', //*
-        4: 'Sizeable Perimeter Reservoir', //*
-        5: 'Token Perimeter Reservoir', //*
-        6: 'Bountiful Frontier Reservoir', //*
-        7: 'Vast Frontier Reservoir', //*
+    let c5Gas = Object.assign({}, c4Gas, {
         8: 'Instrumental Core Reservoir', //*
         9: 'Vital Core Reservoir' //*
-    };
+    });
 
-    let c6Gas = {
-        1: 'Barren Perimeter Reservoir', //*
-        2: 'Minor Perimeter Reservoir', //*
-        3: 'Ordinary Perimeter Reservoir', //*
-        4: 'Sizeable Perimeter Reservoir', //*
-        5: 'Token Perimeter Reservoir', //*
-        6: 'Bountiful Frontier Reservoir', //*
-        7: 'Vast Frontier Reservoir', //*
-        8: 'Instrumental Core Reservoir', //*
-        9: 'Vital Core Reservoir' //*
-    };
-    
+    let c6Gas = Object.assign({}, c5Gas, {
+    });
+
+    let c13Gas = Object.assign({}, c3Gas, {
+    });
+
     // Ore sites ======================================================================================================
 
     let c1Ore = {
@@ -355,19 +341,19 @@ define([], () => {
         2: 'Common Perimeter Deposit', //*
         3: 'Unexceptional Frontier Deposit', //*
         4: 'Average Frontier Deposit', //*
-        5: 'Unusual Core Deposit', //*
-        6: 'Infrequent Core Deposit' //*
+        5: 'Infrequent Core Deposit', //*
+        6: 'Unusual Core Deposit' //*
     };
 
     let c5Ore = {
-        1: 'Average Frontier Deposit', //*
-        2: 'Unexceptional Frontier Deposit', //*
-        3: 'Uncommon Core Deposit', //*
-        4: 'Ordinary Perimeter Deposit', //*
-        5: 'Common Perimeter Deposit', //*
-        6: 'Exceptional Core Deposit', //*
-        7: 'Infrequent Core Deposit', //*
-        8: 'Unusual Core Deposit', //*
+        1: 'Ordinary Perimeter Deposit', //*
+        2: 'Common Perimeter Deposit', //*
+        3: 'Unexceptional Frontier Deposit', //*
+		4: 'Average Frontier Deposit', //*
+        5: 'Infrequent Core Deposit', //*
+        6: 'Unusual Core Deposit', //*        
+		7: 'Uncommon Core Deposit', //*
+        8: 'Exceptional Core Deposit', //*
         9: 'Rarified Core Deposit', //*
         10: 'Isolated Core Deposit' //*
     };
@@ -376,8 +362,13 @@ define([], () => {
         1: 'Ordinary Perimeter Deposit', //*
         2: 'Common Perimeter Deposit', //*
         3: 'Unexceptional Frontier Deposit', //*
-        4: 'Average Frontier Deposit', //*
-        5: 'Rarified Core Deposit' //*
+		4: 'Average Frontier Deposit', //*
+        5: 'Infrequent Core Deposit', //*
+        6: 'Unusual Core Deposit', //*        
+		7: 'Uncommon Core Deposit', //*
+        8: 'Exceptional Core Deposit', //*
+        9: 'Rarified Core Deposit', //*
+        10: 'Isolated Core Deposit' //*
     };
 
     let c13Ore = {
@@ -633,6 +624,10 @@ define([], () => {
                 1: c12Combat
             },
             13: {   // Shattered WH
+                1: c13Combat,
+                2: c13Relic,
+                3: c13Data,
+                4: c13Gas,
                 5: c13WH,
                 6: c13Ore,
                 7: whGh
