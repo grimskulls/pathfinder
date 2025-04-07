@@ -80,7 +80,7 @@ class CorporationModel extends AbstractPathfinderModel {
      */
     const ADMIN_ROLES = [
         'director',
-        'personnel_manager',
+       // 'personnel_manager', //GRIM specific setup
         'security_officer'
     ];
 
