@@ -14,7 +14,7 @@ define([], () => {
 
     // Combat sites ===================================================================================================
 
-	 let allCombat = {
+	let allCombat = {
         10: 'Deepflow Rift',
     };
 
@@ -241,7 +241,8 @@ define([], () => {
         1: 'Unsecured Core Backup Array', //*
         2: 'Unsecured Core Emergence' //*
     };
-
+    let c13Data = Object.assign({}, nullData, c1Data, c2Data, c3Data, {
+    });
     // Ghost sites ======================================================================================================
 
     let hsGh = {
